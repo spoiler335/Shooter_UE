@@ -30,7 +30,15 @@ private:
 	//positiong camera behind the chracter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"));
 	class USpringArmComponent* cameraBoom ;
+
+	//camera that follows charcater
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"));
+	class UCameraComponent* followCamera;
+
 public:
 	//returns cameraboom's subobject
 	FORCEINLINE USpringArmComponent* getCameraBoom() const { return cameraBoom; }
+
+	//returs floowcamera Subobject
+	FORCEINLINE UCameraComponent* getFollowCamera() const { return followCamera; }
 };
