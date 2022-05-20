@@ -7,7 +7,10 @@
 #include "Camera/CameraComponent.h" 
 
 // Sets default values
-AShooterCharacter::AShooterCharacter()
+AShooterCharacter::AShooterCharacter() :
+	baseLookUprate(45.f),
+	baseTurnrate(45.f)
+	
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
@@ -64,6 +67,19 @@ void AShooterCharacter::moveRight(float s)
 	}
 }
 
+
+void AShooterCharacter::lookUpAtRate(float r)
+{
+	AddControllerPitchInput(r * baseLookUprate * GetWorld()->GetDeltaSeconds());
+}
+
+void AShooterCharacter::turnAtRate(float r)
+{
+	AddControllerYawInput(r*baseTurnrate*GetWorld()->GetDeltaSeconds());
+}
+
+
+
 // Called every frame
 void AShooterCharacter::Tick(float DeltaTime)
 {
@@ -78,8 +94,12 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 	check(PlayerInputComponent);
 
-	PlayerInputComponent->BindAxis("moveForward", this, &AShooterCharacter::moveForward);
-	PlayerInputComponent->BindAxis("moveRight", this, &AShooterCharacter::moveRight);
+	PlayerInputComponent->BindAxis("MoveForward", this, &AShooterCharacter::moveForward);
+	PlayerInputComponent->BindAxis("MoveRight", this, &AShooterCharacter::moveRight);
+	PlayerInputComponent->BindAxis("LookUp", this, &AShooterCharacter::lookUpAtRate);
+	PlayerInputComponent->BindAxis("Turn", this, &AShooterCharacter::turnAtRate);
+
+
 
 }
 

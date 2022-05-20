@@ -23,6 +23,10 @@ protected:
 
 	void moveRight(float s);
 
+	void turnAtRate(float r);
+
+	void lookUpAtRate(float r);
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -38,6 +42,12 @@ private:
 	//camera that follows charcater
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"));
 	class UCameraComponent* followCamera;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	float baseTurnrate;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	float baseLookUprate;
 
 public:
 	//returns cameraboom's subobject
