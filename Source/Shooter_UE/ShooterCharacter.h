@@ -23,9 +23,10 @@ protected:
 
 	void moveRight(float s);
 
+	void lookUpAtRate(float r);
+
 	void turnAtRate(float r);
 
-	void lookUpAtRate(float r);
 
 public:	
 	// Called every frame
