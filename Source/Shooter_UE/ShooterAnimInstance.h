@@ -30,8 +30,8 @@ private:
 	float speed;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
-	bool isInAir;
+	bool bIsInAir;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
-	bool isAccelrating;
+	bool bIsAccelrating;
 };

@@ -20,16 +20,16 @@ void UShooterAnimInstance::NativeInitializeAnimation()
 		Velocity.Z = 0;
 		speed = Velocity.Size();
 
-		isInAir = shooterCharacter->GetCharacterMovement()->IsFalling();
+		bIsInAir = shooterCharacter->GetCharacterMovement()->IsFalling();
 
 		if (shooterCharacter->GetCharacterMovement()->GetCurrentAcceleration().Size() > 0)
 		{
-			isAccelrating = true;
+			bIsAccelrating = true;
 		}
 
 		else
 		{
-			isAccelrating = false;
+			bIsAccelrating = false;
 		}
 	}
 
