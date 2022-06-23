@@ -70,7 +70,7 @@ void AShooterCharacter::moveRight(float s)
 
 void AShooterCharacter::lookUpAtRate(float r)
 {
-	AddControllerPitchInput(r * baseLookUprate * GetWorld()->GetDeltaSeconds());
+	AddControllerPitchInput(r*baseLookUprate*GetWorld()->GetDeltaSeconds());
 }
 
 void AShooterCharacter::turnAtRate(float r)
@@ -97,7 +97,7 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 	PlayerInputComponent->BindAxis("MoveForward", this, &AShooterCharacter::moveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AShooterCharacter::moveRight);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AShooterCharacter::lookUpAtRate);
-	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
+	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput );
 	PlayerInputComponent->BindAxis("TurnRate", this, &AShooterCharacter::turnAtRate);
 	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
 
